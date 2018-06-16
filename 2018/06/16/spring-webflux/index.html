@@ -5,19 +5,19 @@
     
     <title>spring-webflux简介与示例 | 晓阳</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="简介  Spring WebFlux是Spring Framework 5.0中引入的新的反应式Web框架。 与Spring MVC不同，它不需要Servlet API，完全异步和非阻塞， 并通过Reactor项目实现Reactive Streams规范。 并且可以在诸如Netty，Undertow和Servlet 3.1+容器的服务器上运行。">
+    <meta name="description" content="简介  Spring WebFlux是Spring Framework 5.0中引入的新的反应式Web框架。与Spring MVC不同，它不需要Servlet API，完全异步和非阻塞，并通过Reactor项目实现Reactive Streams规范。并且可以在诸如Netty，Undertow和Servlet 3.1+容器的服务器上运行。">
 <meta name="keywords" content="java,springboot,webflux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring-webflux简介与示例">
 <meta property="og:url" content="http://yoursite.com/2018/06/16/spring-webflux/index.html">
 <meta property="og:site_name" content="晓阳">
-<meta property="og:description" content="简介  Spring WebFlux是Spring Framework 5.0中引入的新的反应式Web框架。 与Spring MVC不同，它不需要Servlet API，完全异步和非阻塞， 并通过Reactor项目实现Reactive Streams规范。 并且可以在诸如Netty，Undertow和Servlet 3.1+容器的服务器上运行。">
+<meta property="og:description" content="简介  Spring WebFlux是Spring Framework 5.0中引入的新的反应式Web框架。与Spring MVC不同，它不需要Servlet API，完全异步和非阻塞，并通过Reactor项目实现Reactive Streams规范。并且可以在诸如Netty，Undertow和Servlet 3.1+容器的服务器上运行。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://docs.spring.io/spring/docs/5.0.7.RELEASE/spring-framework-reference/images/spring-mvc-and-webflux-venn.png">
-<meta property="og:updated_time" content="2018-06-16T03:28:49.051Z">
+<meta property="og:updated_time" content="2018-06-16T03:36:09.230Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring-webflux简介与示例">
-<meta name="twitter:description" content="简介  Spring WebFlux是Spring Framework 5.0中引入的新的反应式Web框架。 与Spring MVC不同，它不需要Servlet API，完全异步和非阻塞， 并通过Reactor项目实现Reactive Streams规范。 并且可以在诸如Netty，Undertow和Servlet 3.1+容器的服务器上运行。">
+<meta name="twitter:description" content="简介  Spring WebFlux是Spring Framework 5.0中引入的新的反应式Web框架。与Spring MVC不同，它不需要Servlet API，完全异步和非阻塞，并通过Reactor项目实现Reactive Streams规范。并且可以在诸如Netty，Undertow和Servlet 3.1+容器的服务器上运行。">
 <meta name="twitter:image" content="https://docs.spring.io/spring/docs/5.0.7.RELEASE/spring-framework-reference/images/spring-mvc-and-webflux-venn.png">
     
 
@@ -234,8 +234,10 @@
             
             <p><strong>简介</strong></p>
 <blockquote>
-<p>Spring WebFlux是Spring Framework 5.0中引入的新的反应式Web框架。<br> 与Spring MVC不同，它不需要Servlet API，完全异步和非阻塞，<br> 并通过Reactor项目实现Reactive Streams规范。<br> 并且可以在诸如Netty，Undertow和Servlet 3.1+容器的服务器上运行。<br><a id="more"></a><br><strong>Reactor中的Mono和Flux</strong></p>
+<p>Spring WebFlux是Spring Framework 5.0中引入的新的反应式Web框架。与Spring MVC不同，它不需要Servlet API，完全异步和非阻塞，并通过Reactor项目实现Reactive Streams规范。并且可以在诸如Netty，Undertow和Servlet 3.1+容器的服务器上运行。</p>
 </blockquote>
+<a id="more"></a>
+<p><strong>Reactor中的Mono和Flux</strong></p>
 <blockquote>
 <p>Flux 和 Mono 是 Reactor 中的两个基本概念。Flux 表示的是包含 0 到 N 个元素的异步序列。<br>在该序列中可以包含三种不同类型的消息通知：正常的包含元素的消息、序列结束的消息和序列出错的消息。<br>当消息通知产生时，订阅者中对应的方法 onNext(), onComplete()和 onError()会被调用。Mono 表示的是包含 0 或者 1 个元素的异步序列。<br>该序列中同样可以包含与 Flux 相同的三种类型的消息通知。Flux 和 Mono 之间可以进行转换。<br>对一个 Flux 序列进行计数操作，得到的结果是一个 Mono<long>对象。把两个 Mono 序列合并在一起，得到的是一个 Flux 对象。 <a href="https://www.ibm.com/developerworks/cn/java/j-cn-with-reactor-response-encode/index.html" target="_blank" rel="noopener">了解更多</a></long></p>
 </blockquote>
