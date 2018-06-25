@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Spring Cloud Sleuth和zipkin微服务跟踪 | 晓阳</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Spring Cloud Sleuth： Spring Cloud Sleuth是为Spring Cloud实现了分布式追踪解决方案，Spring Cloud Sleuth借用了Dapper的术语：  跨度（Span）：基本的工作单位。例如，发送一个RPC是一个新的跨度，就像向RPC发送响应一样。跨度由跨度的唯一64位ID和跨度所包含的另一个 64位ID标识。Spans还具有其他数据，例如描述，时">
+<meta name="keywords" content="java,springcloud,springboot,zipkin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Cloud Sleuth和zipkin微服务跟踪">
+<meta property="og:url" content="http://yoursite.com/2018/04/22/zipkin/index.html">
+<meta property="og:site_name" content="晓阳">
+<meta property="og:description" content="Spring Cloud Sleuth： Spring Cloud Sleuth是为Spring Cloud实现了分布式追踪解决方案，Spring Cloud Sleuth借用了Dapper的术语：  跨度（Span）：基本的工作单位。例如，发送一个RPC是一个新的跨度，就像向RPC发送响应一样。跨度由跨度的唯一64位ID和跨度所包含的另一个 64位ID标识。Spans还具有其他数据，例如描述，时">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdn.net/20180420160205688">
+<meta property="og:image" content="https://img-blog.csdn.net/20180420160353735">
+<meta property="og:image" content="https://img-blog.csdn.net/20180420160427568">
+<meta property="og:image" content="https://img-blog.csdn.net/20180420160449337">
+<meta property="og:image" content="https://img-blog.csdn.net/20180420160509782">
+<meta property="og:updated_time" content="2018-06-25T04:56:36.516Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring Cloud Sleuth和zipkin微服务跟踪">
+<meta name="twitter:description" content="Spring Cloud Sleuth： Spring Cloud Sleuth是为Spring Cloud实现了分布式追踪解决方案，Spring Cloud Sleuth借用了Dapper的术语：  跨度（Span）：基本的工作单位。例如，发送一个RPC是一个新的跨度，就像向RPC发送响应一样。跨度由跨度的唯一64位ID和跨度所包含的另一个 64位ID标识。Spans还具有其他数据，例如描述，时">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180420160205688">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-brands.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-solid.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">晓阳</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">主页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">类别</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于我</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="http://www.wailian.work/images/2018/06/04/logo.png" />
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fas fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">主页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">类别</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile" class="profile-fixed">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="http://www.wailian.work/images/2018/06/04/logo.png" />
+            <h2 id="name">晓阳</h2>
+            <h3 id="title">如果你真的愿意去努力，你人生最坏的结果，也不过是大器晚成</h3>
+            <span id="location"><i class="fas fa-map-marker-alt" style="padding-right: 5px"></i>Shanghai, China</span>
+            <a id="follow" target="_blank" href="https://github.com/xiaoyangw/">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                4
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                7
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/xiaoyangw/" target="_blank" title="github" >
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-zipkin" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Spring Cloud Sleuth和zipkin微服务跟踪
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/04/22/zipkin/">
+            <time datetime="2018-04-22T08:08:25.000Z" itemprop="datePublished">2018-04-22</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/microservice/">microservice</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/microservice/springcloud/">springcloud</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/springboot/">springboot</a>, <a class="tag-link" href="/tags/springcloud/">springcloud</a>, <a class="tag-link" href="/tags/zipkin/">zipkin</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><strong>Spring Cloud Sleuth：</strong></p>
+<p>Spring Cloud Sleuth是为Spring Cloud实现了分布式追踪解决方案，Spring Cloud Sleuth借用了Dapper的术语：<br>  <strong>跨度（Span）：</strong>基本的工作单位。例如，发送一个RPC是一个新的跨度，就像向RPC发送响应一样。跨度由跨度的唯一64位ID和跨度所包含的另一个 64位ID标识。Spans还具有其他数据，例如描述，时间戳事件，键值注释（标记），导致它们的跨度的ID以及进程ID（通常为IP地址）。跨度启动和停止，并跟踪他们的时间信息。一旦你创建了一个跨度，<code>你必须在将来某个时候停止它。开始追踪的初始跨度被称为 root span。该跨度的span id的值等于trace id</code><br>  <strong>痕迹（Trace）：</strong>一组形成树状结构的跨度。例如，如果您正在运行分布式大数据存储，则跟踪可能由放入请求组成。</p>
+<a id="more"></a>
+<p>  <strong>标注（Annotation）：</strong>用于及时记录事件的存在。用于定义请求开始和结束的一些核心注释是</p>
+<ul>
+<li><strong>cs</strong> - 客户端发送 - 客户端发出请求。这个注释描述了跨度的开始。</li>
+<li><strong>sr</strong> - 服务器已收到 - 服务器端收到请求并开始处理。如果从这个时间戳中减去cs时间戳，将会收到网络延迟。</li>
+<li><strong>ss</strong> - 服务器发送 - 在请求处理完成时（当响应被发送回客户端时）注释。如果从这个时间戳中减去sr时间戳，将会收到服务器端处理请求所需的时间。</li>
+<li><strong>cr</strong> - 客户端收到 - 表示跨度结束。客户端已经成功接收到服务器端的响应。如果从这个时间戳中减去cs时间戳，那么将会收到客户端接收服务器响应所需的全部时间。</li>
+</ul>
+<p><strong>Span</strong>和<strong>Trace</strong>在系统中与<strong>Zipkin</strong> <strong>Annotation</strong>一起显示的可视化示例：</p>
+<p><img src="https://img-blog.csdn.net/20180420160205688" alt="img"></p>
+<p><strong>Zipkin</strong></p>
+<blockquote>
+<p>Zipkin是一个分布式追踪系统。它有助于收集解决微服务架构中延迟问题所需的时序数据。它管理这些数据的收集和查找。 应用程序用于向Zipkin报告时间数据。Zipkin UI还提供了一个依赖关系图，显示每个应用程序有多少跟踪请求。如果你正在解决延迟问题或错误问题，则可以根据应用程序，跟踪长度，注释或时间戳过滤或排序所有跟踪。一旦选择了一个跟踪，你可以看到每个跨度所花费的总跟踪时间的百分比，从而可以确定问题应用程序。</p>
+</blockquote>
+<ul>
+<li><p>在SpringCloud中使用Zipkin：</p>
+<pre><code>springcloud创建zipkin-server,依赖除了springcloud的基础依赖外再添加zipkin依赖，如下
+</code></pre></li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-eureka<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.zipkin.java<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>zipkin-autoconfigure-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.zipkin.java<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>zipkin-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>启动类添加标签@EnableZipkinServer启动zipkin，代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment">* <span class="doctag">@author</span> wxy </span></span><br><span class="line"><span class="comment">*/</span>  </span><br><span class="line"><span class="meta">@SpringBootApplication</span>  </span><br><span class="line"><span class="meta">@EnableZipkinServer</span>  </span><br><span class="line"><span class="meta">@EnableEurekaClient</span>  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZipKinServerApplication</span> </span>&#123;  </span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </span><br><span class="line">        SpringApplication.run(ZipKinServerApplication.class, args);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置文件，如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">spring:  </span><br><span class="line">    application:  </span><br><span class="line">        name: micoserice-zipkin-server  </span><br><span class="line">server:  </span><br><span class="line">    port: 9994  </span><br><span class="line">eureka:  </span><br><span class="line">    client:  </span><br><span class="line">        serviceUrl:  </span><br><span class="line">            defaultZone: http://localhost:8761/eureka/  </span><br><span class="line">    instance:  </span><br><span class="line">        instance-id: $&#123;spring.application.name&#125;:$&#123;server.port&#125;  </span><br><span class="line">        prefer-ip-address: true</span><br></pre></td></tr></table></figure>
+<p>启动后可直接访问localhost:9994，可看到zipkin的页面</p>
+<p><img src="https://img-blog.csdn.net/20180420160353735" alt="img"></p>
+<p>​    除了这种方式还可通过docker安装，可查看教程<a href="https://github.com/openzipkin/zipkin" target="_blank" rel="noopener">https://github.com/openzipkin/zipkin</a></p>
+<ul>
+<li>为微服务提供者消费者添加zipkin依赖和配置</li>
+</ul>
+<p>​    添加依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- zipkin依赖jar--&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-zipkin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> 添加配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring:  </span><br><span class="line">    zipkin:  </span><br><span class="line">        base-url: http://localhost:9994   </span><br><span class="line">        sleuth:  </span><br><span class="line">            sampler:  </span><br><span class="line">            percentage: 1.0</span><br></pre></td></tr></table></figure>
+<p><code>spring.sleuth.sampler.percentage</code> 是监控的百分比，默认的是0.1表示10%,这里给1.0表示全部监控<br><code>spring.zipkin.base-url</code>是zipkin-server的服务路径</p>
+<p>依次启动服务如下</p>
+<p>​   <img src="https://img-blog.csdn.net/20180420160427568" alt="img"></p>
+<p>​   我这里启动了zuul,ribbon以及user服务，通过zuul网管依次访问ribbon和user，查看zipkin如下图：</p>
+<p>​    <img src="https://img-blog.csdn.net/20180420160449337" alt="img"></p>
+<p><img src="https://img-blog.csdn.net/20180420160509782" alt="img"></p>
+<p>示例代码：<a href="https://github.com/xiaoyangW/springcloud-learn-example/tree/master/microservice-sleuth-zipkin-server" target="_blank" rel="noopener">microservice-sleuth-zipkin-server</a> </p>
+<p>参考文档</p>
+<p><a href="http://cloud.spring.io/spring-cloud-static/Edgware.SR1/multi/multi__introduction.html" target="_blank" rel="noopener">http://cloud.spring.io/spring-cloud-static/Edgware.SR1/multi/multi__introduction.html</a></p>
+<p>​ <a href="http://www.ityouknow.com/springcloud/2018/02/02/spring-cloud-sleuth-zipkin.html" target="_blank" rel="noopener">http://www.ityouknow.com/springcloud/2018/02/02/spring-cloud-sleuth-zipkin.html</a></p>
+<p>​ <a href="https://zipkin.io/" target="_blank" rel="noopener">https://zipkin.io/</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+</div>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/05/30/Java-nio/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Java Nio中的缓冲区与通道
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/01/11/zuul/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Spring Cloud网关zuul</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+	<div id="commentContainer"></div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/microservice/">microservice</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/microservice/springcloud/">springcloud</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">2</span></li></ul></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nio/">nio</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/">springboot</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springcloud/">springcloud</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webflux/">webflux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zipkin/">zipkin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zuul/">zuul</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/nio/" style="font-size: 10px;">nio</a> <a href="/tags/springboot/" style="font-size: 16.67px;">springboot</a> <a href="/tags/springcloud/" style="font-size: 13.33px;">springcloud</a> <a href="/tags/webflux/" style="font-size: 10px;">webflux</a> <a href="/tags/zipkin/" style="font-size: 10px;">zipkin</a> <a href="/tags/zuul/" style="font-size: 10px;">zuul</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://github.com/xiaoyangw/">github</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fas fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 John Doe<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><!--. Theme by <a href="http://github.com/ppoffice">PPOffice</a>-->
+        </div>
+    </div>
+</footer>
+        
+    
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+		var gitment = new Gitment({
+			owner: 'xiaoyangW',
+			repo: 'xiaoyangW.github.io',
+			oauth: {
+				client_id: 'd3de89329d32826ff6cc',
+				client_secret: '2d7f4a95869fab0f1d5c2750ab35b6fe4a95b2a7',
+			},
+		})
+		gitment.render('commentContainer')
+	</script>
+	
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
