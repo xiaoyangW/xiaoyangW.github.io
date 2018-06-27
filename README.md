@@ -1,1 +1,1 @@
-[我的博客](www.wxiaoyang.top)
+[我的博客](http://www.wxiaoyang.top/)
