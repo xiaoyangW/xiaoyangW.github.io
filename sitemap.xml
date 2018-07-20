@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wxiaoyang.top/2018/04/22/zipkin/</loc>
+    
+    <lastmod>2018-07-20T02:44:35.331Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wxiaoyang.top/2018/01/11/zuul/</loc>
+    
+    <lastmod>2018-07-20T02:34:24.316Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wxiaoyang.top/2018/07/18/proxy/</loc>
     
     <lastmod>2018-07-19T13:39:22.619Z</lastmod>
@@ -12,20 +26,6 @@
     <loc>http://wxiaoyang.top/2018/07/04/selector/</loc>
     
     <lastmod>2018-07-05T06:55:02.448Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wxiaoyang.top/2018/04/22/zipkin/</loc>
-    
-    <lastmod>2018-06-25T04:56:36.516Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wxiaoyang.top/2018/01/11/zuul/</loc>
-    
-    <lastmod>2018-06-25T04:49:31.021Z</lastmod>
     
   </url>
   

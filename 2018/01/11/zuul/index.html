@@ -13,12 +13,12 @@
 <meta property="og:site_name" content="晓阳">
 <meta property="og:description" content="Zuul 简介 “Zuul is the front door for all requests from devices and web sites to the backend of the Netflix streaming application. As an edge service application, Zuul is built to enable dynamic routing">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img-blog.csdn.net/20180111153851540">
-<meta property="og:updated_time" content="2018-06-25T04:49:31.021Z">
+<meta property="og:image" content="http://www.wailian.work/images/2018/07/20/zuul1.png">
+<meta property="og:updated_time" content="2018-07-20T02:34:24.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Cloud网关zuul">
 <meta name="twitter:description" content="Zuul 简介 “Zuul is the front door for all requests from devices and web sites to the backend of the Netflix streaming application. As an edge service application, Zuul is built to enable dynamic routing">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20180111153851540">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/07/20/zuul1.png">
     
 
     
@@ -275,7 +275,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@EnableZuulProxy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZuulApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        SpringApplication.run(ZuulApplication.class, args);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>​    3、配置文件application.yml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">    application:</span><br><span class="line">        name: micoserice-gateway-zuul</span><br><span class="line"></span><br><span class="line">server:</span><br><span class="line">    port: 8090</span><br><span class="line">eureka:</span><br><span class="line">    client:</span><br><span class="line">        serviceUrl:</span><br><span class="line">            defaultZone: &lt;http://localhost:8761/eureka/&gt;</span><br><span class="line"></span><br><span class="line">    instance:</span><br><span class="line">        prefer-ip-address: true</span><br><span class="line">        instance-id: $&#123;spring.application.name&#125;:$&#123;server.port&#125;</span><br></pre></td></tr></table></figure></p>
 <p>启动运行：</p>
-<p><img src="https://img-blog.csdn.net/20180111153851540" alt="img"></p>
+<p><img src="http://www.wailian.work/images/2018/07/20/zuul1.png" alt="img"></p>
 <p>如图我这里启动了三个服务，zuul注册到Eureka-service为服务后默认情况下是构建PAI-GATEWAY，访问时只要zuul-host/appname/api</p>
 <p><em>如我这里访问：<a href="http://localhost:8090/micoserice-user/user/getuser，当调用服务有多个时，zuul是实现了负载均衡的。" target="_blank" rel="noopener">http://localhost:8090/micoserice-user/user/getuser，当调用服务有多个时，zuul是实现了负载均衡的。</a></em></p>
 <p><strong>zuul中使用hystrix的回退</strong></p>
