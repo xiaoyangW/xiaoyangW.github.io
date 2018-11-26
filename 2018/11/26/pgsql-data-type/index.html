@@ -3,23 +3,20 @@
 <head>
     <meta charset="utf-8">
     
-    <title>zookeeper集群安装 | 晓阳</title>
+    <title>PostgreSQL数据类型概述 | 晓阳</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="环境准备  zookeeper安装包：http://www-eu.apache.org/dist/zookeeper/stable/zookeeper-3.4.12.tar.gz  centos + java 运行环境，这里我分别准备三台centos虚拟机192.168.146.151，192.168.146.152，192.168.146.153">
-<meta name="keywords" content="linux">
+    <meta name="description" content="PostgreSQL数据类型概述PostgreSQL支持以下数据类型：  布尔类型（boolean） 字符类型，如char，varchar和text。 数字类型，例如整数和浮点数。 时间类型，如date,time,timestamp 用于存储通用唯一标识符的[UUID] array(数组)，用于存储数组字符串，数字等 json  存储json数据 hstore存储键值对 特殊类型，如网络地址、几">
+<meta name="keywords" content="PostgreSQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="zookeeper集群安装">
-<meta property="og:url" content="http://wxiaoyang.top/2018/09/26/zk-install/index.html">
+<meta property="og:title" content="PostgreSQL数据类型概述">
+<meta property="og:url" content="http://wxiaoyang.top/2018/11/26/pgsql-data-type/index.html">
 <meta property="og:site_name" content="晓阳">
-<meta property="og:description" content="环境准备  zookeeper安装包：http://www-eu.apache.org/dist/zookeeper/stable/zookeeper-3.4.12.tar.gz  centos + java 运行环境，这里我分别准备三台centos虚拟机192.168.146.151，192.168.146.152，192.168.146.153">
+<meta property="og:description" content="PostgreSQL数据类型概述PostgreSQL支持以下数据类型：  布尔类型（boolean） 字符类型，如char，varchar和text。 数字类型，例如整数和浮点数。 时间类型，如date,time,timestamp 用于存储通用唯一标识符的[UUID] array(数组)，用于存储数组字符串，数字等 json  存储json数据 hstore存储键值对 特殊类型，如网络地址、几">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.wailian.work/images/2018/10/22/15401747201.png">
-<meta property="og:image" content="http://www.wailian.work/images/2018/10/22/zkclient.png">
-<meta property="og:updated_time" content="2018-10-22T10:37:15.373Z">
+<meta property="og:updated_time" content="2018-11-26T12:21:28.881Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zookeeper集群安装">
-<meta name="twitter:description" content="环境准备  zookeeper安装包：http://www-eu.apache.org/dist/zookeeper/stable/zookeeper-3.4.12.tar.gz  centos + java 运行环境，这里我分别准备三台centos虚拟机192.168.146.151，192.168.146.152，192.168.146.153">
-<meta name="twitter:image" content="http://www.wailian.work/images/2018/10/22/15401747201.png">
+<meta name="twitter:title" content="PostgreSQL数据类型概述">
+<meta name="twitter:description" content="PostgreSQL数据类型概述PostgreSQL支持以下数据类型：  布尔类型（boolean） 字符类型，如char，varchar和text。 数字类型，例如整数和浮点数。 时间类型，如date,time,timestamp 用于存储通用唯一标识符的[UUID] array(数组)，用于存储数组字符串，数字等 json  存储json数据 hstore存储键值对 特殊类型，如网络地址、几">
     
 
     
@@ -215,7 +212,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-zk-install" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-pgsql-data-type" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -223,7 +220,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            zookeeper集群安装
+            PostgreSQL数据类型概述
         </h1>
     
 
@@ -232,8 +229,8 @@
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/09/26/zk-install/">
-            <time datetime="2018-09-25T16:00:00.000Z" itemprop="datePublished">2018-09-26</time>
+        <a href="/2018/11/26/pgsql-data-type/">
+            <time datetime="2018-11-26T12:20:25.000Z" itemprop="datePublished">2018-11-26</time>
         </a>
     </div>
 
@@ -241,13 +238,13 @@
                         
     <div class="article-category">
     	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/microservice/">microservice</a>
+        <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/linux/">linux</a>
+        <a class="tag-link" href="/tags/PostgreSQL/">PostgreSQL</a>
     </div>
 
                     </div>
@@ -258,39 +255,73 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><strong>环境准备</strong></p>
+            <ul>
+<li><h2 id="PostgreSQL数据类型概述"><a href="#PostgreSQL数据类型概述" class="headerlink" title="PostgreSQL数据类型概述"></a>PostgreSQL数据类型概述</h2><p>PostgreSQL支持以下数据类型：</p>
 <ul>
-<li><p><code>zookeeper</code>安装包：<a href="http://www-eu.apache.org/dist/zookeeper/stable/zookeeper-3.4.12.tar.gz" target="_blank" rel="noopener">http://www-eu.apache.org/dist/zookeeper/stable/zookeeper-3.4.12.tar.gz</a></p>
-</li>
-<li><p><code>centos + java</code> 运行环境，这里我分别准备三台centos虚拟机<code>192.168.146.151，192.168.146.152，192.168.146.153</code></p>
-<a id="more"></a>
+<li>布尔类型（boolean）</li>
+<li>字符类型，如<code>char</code>，<code>varchar</code>和<code>text</code>。</li>
+<li>数字类型，例如整数和浮点数。</li>
+<li>时间类型，如<code>date</code>,<code>time</code>,<code>timestamp</code></li>
+<li>用于存储通用唯一标识符的[UUID]</li>
+<li>array(数组)，用于存储数组字符串，数字等</li>
+<li>json  存储json数据</li>
+<li>hstore存储键值对</li>
+<li>特殊类型，如网络地址、几何数据、货币数据等。<a id="more"></a>
+<h3 id="布尔"><a href="#布尔" class="headerlink" title="布尔"></a>布尔</h3></li>
+</ul>
+<p>一个[布尔]数据类型可以容纳三个可能的值之一：true，false或null。您使用<code>boolean</code>或者 <code>bool</code>来声明具有布尔数据类型的列。</p>
+<p>当将数据插入布尔列时，PostgreSQL将其转换为布尔值，例如 <code>1</code>，<code>yes</code>，<code>y</code>，<code>t</code>，<code>true</code>会转换为true；<code>0</code>，<code>no</code>，<code>n</code>, <code>false</code>，<code>f</code>会转换为false。</p>
+<p>当您从布尔列中查询数据时候，PostgreSQL会将<code>t</code>值转换为true，将<code>f</code>空格转换为false。</p>
+<h3 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h3><p>PostgreSQL的提供了三种[字符数据类型]：<code>char(n)</code>，<code>varchar(n)</code>，和<code>text</code></p>
+<ul>
+<li><code>char(n)</code>是带有空格填充的固定长度字符。如果插入的字符串短于列的长度，PostgreSQL会填充空格。如果插入的字符串长度超过列的长度，PostgreSQL将发出错误。</li>
+<li><code>varchar(n)</code>是可变长度的字符串。有了<code>varchar(N)</code>，您可以存储最多<code>n</code>字符。当存储的字符串短于列的长度时，PostgreSQL不会填充空格。</li>
+<li><code>text</code> 是可变长度的字符串。从理论上讲，文本数据是一个长度不限的字符串。</li>
+</ul>
+<h3 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h3><p>PostgreSQL提供两种不同类型的数字：</p>
+<ul>
+<li>整数</li>
+<li>浮点数</li>
+</ul>
+<h4 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h4><p>PostgreSQL中有三种整数：</p>
+<ul>
+<li>smallint（<code>小整数</code>别名<code>int2</code>）是2字节有符号整数，范围从-32,768到32,767。</li>
+<li>integer（别名：<code>int</code>、<code>int4</code>）是一个4字节的整数，范围从-2,147,483,648到-2,147,483,647。</li>
+<li>bigint（别名：<code>int8</code>）是一个八字节的整数，范围从-9223372036854775808 到9223372036854775807</li>
+<li>serial（别名：<code>serial2</code>、<code>serial4</code>、<code>serial8</code>）最大值与整数相同，只是PostgreSQL会自动生成值并将值填充到<code>serial</code>列中。这类似于MySQL中的<code>AUTO_INCREMENT</code></li>
+</ul>
+<h4 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h4><p>有三种主要类型的浮点数：</p>
+<ul>
+<li><code>float(n)</code>  是一个浮点数，其精度至少为n，最多为8个字节。</li>
+<li><code>real</code>或者<code>float8</code>是双精度（8字节）浮点数。</li>
+<li><code>numeric</code>或者<code>numeric(p,s)</code> 是带小数点后带有s数的p位数的实数。这<code>numeric(p,s)</code>是确切的数字。</li>
+</ul>
+<h3 id="时间数据类型"><a href="#时间数据类型" class="headerlink" title="时间数据类型"></a>时间数据类型</h3><p>时态数据类型允许您存储日期和/或时间数据。PostgreSQL有五种主要的时态数据类型：</p>
+<ul>
+<li><code>date</code>仅存储日期值。</li>
+<li><code>time</code>存储时间值。</li>
+<li><code>timestamp</code>存储日期和时间值。</li>
+<li><code>timestampz</code>是一种时区感知时间戳数据类型。它是带时区的[时间戳]的缩写。</li>
+<li><code>interval</code>存储一段时间，时间间隔。</li>
+</ul>
+<p>这<code>timestampz</code>是PostgreSQL对SQL标准的时间数据类型的扩展。</p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>在PostgreSQL中有存储字符串，整数等类型的数组。该数组在某些情况下会派上用场，例如，存储一周中的几天，一年中的几个月。</p>
+<h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><p>PostgreSQL提供2种JSON的数据类型：<code>json</code>和<code>jsonb</code>用于存储json数据。</p>
+<p>在<code>json</code>需要为每个处理重新分析数据类型存储json数据，而<code>jsonb</code>在二进制格式这是更快处理，但速度慢于插入数据类型存储json数据。另外，<code>jsonb</code>支持索引，这可能是一个优势。</p>
+<h3 id="UUID"><a href="#UUID" class="headerlink" title="UUID"></a>UUID</h3><p>该<code>UUID</code>数据类型允许您存储通用唯一标识符被定义  。这些<code>UUID</code>值保证了更好的唯一性，<code>serial</code>并且可以用于隐藏公开的敏感数据，例如<code>id</code>中的值。</p>
+<h3 id="特殊数据类型"><a href="#特殊数据类型" class="headerlink" title="特殊数据类型"></a>特殊数据类型</h3><p>除原始数据类型外，PostgreSQL还提供了几种与几何和网络相关的特殊数据类型。</p>
+<ul>
+<li><code>box</code>- 一个矩形框。</li>
+<li><code>line</code>- 一组积分。</li>
+<li><code>point</code>- 一对几何数字。</li>
+<li><code>lseg</code>- 线段。</li>
+<li><code>polygon</code>- 封闭的几何形状。</li>
+<li><code>inet</code>- IP4地址。</li>
+<li><code>macaddr</code>- 一个  <code>MAC</code>地址。</li>
+<li><code>money</code>-货币金额</li>
+</ul>
 </li>
 </ul>
-<p><strong>安装配置</strong></p>
-<ul>
-<li><p>解压zookeeper安装包，<code>tar -zxvf zookeeper-3.4.12.tar.gz</code> ,解压后目录</p>
-<p><img src="http://www.wailian.work/images/2018/10/22/15401747201.png" alt="zookeeper_list"></p>
-</li>
-<li><p>添加zookeeper配置，进入conf目录，使用<code>cp zoo_sample.cfg zoo.cfg</code> 复制<code>zoo_sample.cfg</code>为<code>zoo.cfg</code></p>
-<p>修改后配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># The number of milliseconds of each tick</span><br><span class="line">tickTime=2000</span><br><span class="line"># The number of ticks that the initial </span><br><span class="line"># synchronization phase can take</span><br><span class="line">initLimit=10</span><br><span class="line"># The number of ticks that can pass between </span><br><span class="line"># sending a request and getting an acknowledgement</span><br><span class="line">syncLimit=5</span><br><span class="line"># the directory where the snapshot is stored.</span><br><span class="line"># do not use /tmp for storage, /tmp here is just </span><br><span class="line"># example sakes.</span><br><span class="line">dataDir=/tmp/zookeeper</span><br><span class="line"># the port at which the clients will connect</span><br><span class="line">clientPort=2181</span><br><span class="line"># the maximum number of client connections.</span><br><span class="line"># increase this if you need to handle more clients</span><br><span class="line">#maxClientCnxns=60</span><br><span class="line">#</span><br><span class="line"># Be sure to read the maintenance section of the </span><br><span class="line"># administrator guide before turning on autopurge.</span><br><span class="line">#</span><br><span class="line"># http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance</span><br><span class="line">#</span><br><span class="line"># The number of snapshots to retain in dataDir</span><br><span class="line">#autopurge.snapRetainCount=3</span><br><span class="line"># Purge task interval in hours</span><br><span class="line"># Set to &quot;0&quot; to disable auto purge feature</span><br><span class="line">#autopurge.purgeInterval=1</span><br><span class="line">server.1=192.168.146.151:2188:3181</span><br><span class="line">server.2=192.168.146.152:2188:3181</span><br><span class="line">server.3=192.168.146.153:2188:3181</span><br></pre></td></tr></table></figure>
-<p>主要配置说明</p>
-<p>​    <code>clientPort</code>运行端口号</p>
-<p>​    <code>dataDir</code>数据存储位置</p>
-<p>myid设置</p>
-<p>​    当安装zookeeper集群环境时要在<code>dataDir</code>目录下创建当前zookeeper的<code>myid</code></p>
-<p>​    <code>如我在192.168.146.151机器上创建在/tmp/zookeeper/myid文件，文件内容为1，依次类推</code> 。</p>
-<p>添加server集群配置</p>
-<p>​    <code>server.1=192.168.146.151:2188:3181</code>–&gt;server.myid=ip:clientPort:prot，有几台机器添加几条配置 ，注意两个端口号不可以重复（如果重复会出现端口号重复的问题）,如上配置。</p>
-</li>
-<li><p>启动运行，进入每台机器zookeeper目录中的bin文件夹，运行<code>zkServer.sh</code>脚本，如 <code>sh zkServer.sh start</code> ,运行时可在启动目录下查看<code>zookeeper.out</code> 控制台日志。</p>
-</li>
-<li><p>启动好了可通过运行bin目录下的<code>zkCli.sh</code>脚本连接zookeeper，如</p>
-<p><img src="http://www.wailian.work/images/2018/10/22/zkclient.png" alt="zkclient.png"></p>
-<p>也可通过<code>sh zkServer.sh status</code> 查看当前zookeeper是什么角色</p>
-</li>
-</ul>
-<p>  注：zookeeper 集群角色分为leader、follower、observer，这里我配置的只有leader和follower，要台添加一台observer机器，在server配置后面标记为<code>observer</code>如：<code>server.4=192.168.146.154:2188:3181:observer</code></p>
 
         
         </div>
@@ -345,19 +376,10 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
         
 <nav id="article-nav">
     
-        <a href="/2018/11/26/pgsql-data-type/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    PostgreSQL数据类型概述
-                
-            </div>
-        </a>
     
-    
-        <a href="/2018/07/18/proxy/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/09/26/zk-install/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Java 代理模式</div>
+            <div class="article-nav-title">zookeeper集群安装</div>
         </a>
     
 </nav>
