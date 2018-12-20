@@ -4,6 +4,35 @@
 
     
   <url>
+    <loc>http://wxiaoyang.top/2018/12/20/docker-arrange/</loc>
+    <lastmod>2018-12-20T12:50:46.727Z</lastmod>
+    <data>
+        <display>
+        <title>DOCKER编排SpringCloud微服务</title>
+        <pubTime>2018-12-20T12:38:25.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>docker</tag>
+         
+        <tag>springboot</tag>
+         
+        <tag>springcloud</tag>
+         
+         
+           
+             
+              <breadCrumb title="microservice" url="http://wxiaoyang.top/categories/microservice/"/>
+          
+             
+              <breadCrumb title="springcloud" url="http://wxiaoyang.top/categories/microservice/springcloud/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wxiaoyang.top/2018/11/26/pgsql-data-type/</loc>
     <lastmod>2018-11-26T12:36:28.850Z</lastmod>
     <data>
