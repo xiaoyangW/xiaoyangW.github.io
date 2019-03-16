@@ -4,6 +4,37 @@
 
     
   <url>
+    <loc>http://wxiaoyang.top/2019/03/15/nacos/</loc>
+    <lastmod>2019-03-16T04:03:09.926Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Cloud Alibab Nacos注册中心与配置中心</title>
+        <pubTime>2019-03-15T03:46:25.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>springboot</tag>
+         
+        <tag>springcloud</tag>
+         
+        <tag>nacos</tag>
+         
+        <tag>springcloud-alibaba</tag>
+         
+         
+           
+             
+              <breadCrumb title="microservice" url="http://wxiaoyang.top/categories/microservice/"/>
+          
+             
+              <breadCrumb title="springcloud" url="http://wxiaoyang.top/categories/microservice/springcloud/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wxiaoyang.top/2018/12/31/redis-data-type/</loc>
     <lastmod>2018-12-30T10:57:33.610Z</lastmod>
     <data>
