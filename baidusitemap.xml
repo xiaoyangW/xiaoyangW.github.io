@@ -4,6 +4,31 @@
 
     
   <url>
+    <loc>http://wxiaoyang.top/2019/03/17/dtp/</loc>
+    <lastmod>2019-03-18T13:11:32.796Z</lastmod>
+    <data>
+        <display>
+        <title>分布式事务与X/Open DTP模型</title>
+        <pubTime>2019-03-17T07:32:25.000Z</pubTime>
+        
+        <tag>springcloud</tag>
+         
+        <tag>事务</tag>
+         
+         
+           
+             
+              <breadCrumb title="microservice" url="http://wxiaoyang.top/categories/microservice/"/>
+          
+             
+              <breadCrumb title="分布式事务" url="http://wxiaoyang.top/categories/microservice/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wxiaoyang.top/2019/03/15/nacos/</loc>
     <lastmod>2019-03-16T04:03:09.926Z</lastmod>
     <data>
@@ -13,9 +38,9 @@
         
         <tag>java</tag>
          
-        <tag>springboot</tag>
-         
         <tag>springcloud</tag>
+         
+        <tag>springboot</tag>
          
         <tag>nacos</tag>
          
@@ -64,11 +89,11 @@
         
         <tag>java</tag>
          
+        <tag>springcloud</tag>
+         
         <tag>docker</tag>
          
         <tag>springboot</tag>
-         
-        <tag>springcloud</tag>
          
          
            
@@ -133,9 +158,9 @@
         
         <tag>java</tag>
          
-        <tag>springboot</tag>
-         
         <tag>springcloud</tag>
+         
+        <tag>springboot</tag>
          
         <tag>zipkin</tag>
          
@@ -162,9 +187,9 @@
         
         <tag>java</tag>
          
-        <tag>springboot</tag>
-         
         <tag>springcloud</tag>
+         
+        <tag>springboot</tag>
          
         <tag>zuul</tag>
          

@@ -3,15 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>分类: springcloud | 晓阳</title>
+    <title>分布式事务与X/Open DTP模型 | 晓阳</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="晓阳">
-<meta property="og:url" content="http://wxiaoyang.top/categories/microservice/springcloud/index.html">
+    <meta name="description" content="事务的特征 Atomic：原子性，事务必须是一个原子的工作单元,要么全部成功，要么全部失败 Consistent：一致性，事务完成时必须使所有的数据保持一致状态。 Isolation：隔离性，并发事务所做的修改必须与其他事务所做的修改是隔离的。 Duration：持久性，事务完成后对系统的影响是永久性的。">
+<meta name="keywords" content="springcloud,事务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布式事务与X&#x2F;Open DTP模型">
+<meta property="og:url" content="http://wxiaoyang.top/2019/03/17/dtp/index.html">
 <meta property="og:site_name" content="晓阳">
+<meta property="og:description" content="事务的特征 Atomic：原子性，事务必须是一个原子的工作单元,要么全部成功，要么全部失败 Consistent：一致性，事务完成时必须使所有的数据保持一致状态。 Isolation：隔离性，并发事务所做的修改必须与其他事务所做的修改是隔离的。 Duration：持久性，事务完成后对系统的影响是永久性的。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://i2.bvimg.com/680577/cb0de1832a28d153s.png">
+<meta property="og:image" content="http://i1.bvimg.com/680577/06bdc26b86e25a4bs.png">
+<meta property="og:image" content="http://i2.bvimg.com/680577/a90b4077b59e472cs.png">
+<meta property="og:updated_time" content="2019-03-18T13:11:32.796Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="晓阳">
+<meta name="twitter:title" content="分布式事务与X&#x2F;Open DTP模型">
+<meta name="twitter:description" content="事务的特征 Atomic：原子性，事务必须是一个原子的工作单元,要么全部成功，要么全部失败 Consistent：一致性，事务完成时必须使所有的数据保持一致状态。 Isolation：隔离性，并发事务所做的修改必须与其他事务所做的修改是隔离的。 Duration：持久性，事务完成后对系统的影响是永久性的。">
+<meta name="twitter:image" content="http://i2.bvimg.com/680577/cb0de1832a28d153s.png">
     
 
     
@@ -207,158 +216,149 @@
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fas fa-folder"></i></span>
-        <h1 class="title">springcloud</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-dtp" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2019/03/15/nacos/">Spring Cloud Alibab Nacos注册中心与配置中心</a>
+        <h1 class="article-title" itemprop="name">
+            分布式事务与X/Open DTP模型
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2019/03/15/nacos/">
-            <time datetime="2019-03-15T03:46:25.000Z" itemprop="datePublished">2019-03-15</time>
+        <a href="/2019/03/17/dtp/">
+            <time datetime="2019-03-17T07:32:25.000Z" itemprop="datePublished">2019-03-17</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/microservice/">microservice</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/microservice/springcloud/">springcloud</a>
+        <a class="article-category-link" href="/categories/microservice/">microservice</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/microservice/分布式事务/">分布式事务</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/nacos/">nacos</a>, <a class="tag-link" href="/tags/springboot/">springboot</a>, <a class="tag-link" href="/tags/springcloud/">springcloud</a>, <a class="tag-link" href="/tags/springcloud-alibaba/">springcloud-alibaba</a>
+        <a class="tag-link" href="/tags/springcloud/">springcloud</a>, <a class="tag-link" href="/tags/事务/">事务</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/12/20/docker-arrange/">DOCKER编排SpringCloud微服务</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h4 id="事务的特征"><a href="#事务的特征" class="headerlink" title="事务的特征"></a>事务的特征</h4><ul>
+<li><strong>Atomic</strong>：原子性，事务必须是一个原子的工作单元,要么全部成功，要么全部失败</li>
+<li><strong>Consistent</strong>：一致性，事务完成时必须使所有的数据保持一致状态。</li>
+<li><strong>Isolation</strong>：隔离性，并发事务所做的修改必须与其他事务所做的修改是隔离的。</li>
+<li><strong>Duration</strong>：持久性，事务完成后对系统的影响是永久性的。</li>
+</ul>
+<a id="more"></a>
+<h4 id="分布式事务的由来"><a href="#分布式事务的由来" class="headerlink" title="分布式事务的由来"></a>分布式事务的由来</h4><p>随着系统用户和数据的增加，原先的单体应用的程序架构向着SOA或者微服务的架构发展，数据库也会有分库分表等操作来提高效率</p>
+<p><strong>单体应用</strong></p>
+<p><img src="http://i2.bvimg.com/680577/cb0de1832a28d153s.png" alt="单体应用"></p>
+<p>单体应用只有一个操作的数据库，完全可以直接依赖数据库的ACID特性和应用的事务管理来保证事务的执行，数据的一致性。</p>
+<p><strong>分布式应用</strong></p>
+<p><img src="http://i1.bvimg.com/680577/06bdc26b86e25a4bs.png" alt="soa"></p>
+<p>分布式应用中每个模块的应用都对应一个数据库时候，事务管理已经跨应用了，如上图，加入张三下单买东西，要在用户中心添加订单记录，订单中心要去删减库存，对一个整体的应用而言这是一个原子操作，要么两个操作全部成功要么全部失败，来保证数据的一致性。</p>
+<h4 id="X-Open-DTP事务模型"><a href="#X-Open-DTP事务模型" class="headerlink" title="X/Open DTP事务模型"></a>X/Open DTP事务模型</h4><p>X/Open DTP 全称 <code>X/Open Distributed Transaction Processing Reference</code>是X/Open这个组织定义出的一套分布式事务标准</p>
+<p><img src="http://i2.bvimg.com/680577/a90b4077b59e472cs.png" alt="分布式事务处理 (DTP) 模型"></p>
+<h5 id="X-Open-DTP中的角色"><a href="#X-Open-DTP中的角色" class="headerlink" title="X/Open DTP中的角色"></a>X/Open DTP中的角色</h5><ul>
+<li><strong>AP(Application Program)</strong>：应用程序，主要是定义事务边界以及那些组成事务的特定于应用程序的操作。</li>
+<li><strong>EM(Resouces Manager)</strong>：资源管理器，管理一些共享资源的自治域，如提供对诸如数据库之类的共享资源的访问。</li>
+<li><strong>TM(Transaction Manager)</strong>：事务管理器，管理全局事务，协调事务的提交或者回滚，并协调故障恢复。</li>
+</ul>
+<h4 id="DTP模型执行流程"><a href="#DTP模型执行流程" class="headerlink" title="DTP模型执行流程"></a>DTP模型执行流程</h4><ul>
+<li>第一步：AP使用一组来自RM的资源</li>
+<li>第二步：AP通过TM接口定义事务的边界</li>
+<li>第三步：TM和RM交换事务信息</li>
+</ul>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/12/20/docker-arrange/">
-            <time datetime="2018-12-20T12:38:25.000Z" itemprop="datePublished">2018-12-20</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/microservice/">microservice</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/microservice/springcloud/">springcloud</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/docker/">docker</a>, <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/springboot/">springboot</a>, <a class="tag-link" href="/tags/springcloud/">springcloud</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/04/22/zipkin/">Spring Cloud Sleuth和zipkin微服务跟踪</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/04/22/zipkin/">
-            <time datetime="2018-04-22T08:08:25.000Z" itemprop="datePublished">2018-04-22</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/microservice/">microservice</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/microservice/springcloud/">springcloud</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/springboot/">springboot</a>, <a class="tag-link" href="/tags/springcloud/">springcloud</a>, <a class="tag-link" href="/tags/zipkin/">zipkin</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/01/11/zuul/">Spring Cloud网关zuul</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/01/11/zuul/">
-            <time datetime="2018-01-11T07:32:25.000Z" itemprop="datePublished">2018-01-11</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/microservice/">microservice</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/microservice/springcloud/">springcloud</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/springboot/">springboot</a>, <a class="tag-link" href="/tags/springcloud/">springcloud</a>, <a class="tag-link" href="/tags/zuul/">zuul</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
 </div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+</div>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/03/15/nacos/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Spring Cloud Alibab Nacos注册中心与配置中心</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+	<div id="commentContainer"></div>
+</section>
+    
+
 </section>
             
                 
