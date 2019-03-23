@@ -179,7 +179,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                12
+                13
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -208,6 +208,112 @@
 
             
             <section id="main">
+    <article id="post-2pc-3pc" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2019/03/23/2pc-3pc/">分布式事务 2PC-3PC协议</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2019/03/23/2pc-3pc/">
+            <time datetime="2019-03-23T06:42:25.000Z" itemprop="datePublished">2019-03-23</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/microservice/">microservice</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/microservice/分布式事务/">分布式事务</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/springcloud/">springcloud</a>, <a class="tag-link" href="/tags/事务/">事务</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><h4 id="两阶段提交协议-2PC"><a href="#两阶段提交协议-2PC" class="headerlink" title="两阶段提交协议-2PC"></a>两阶段提交协议-2PC</h4><p>两阶段提交协议(2PC)：是一种原子承诺协议，一种分布式算法，它协调参与分布式事务的所有应用（进程）是否提交或终止（回滚）事务，</p>
+<h5 id="2PC基本算法"><a href="#2PC基本算法" class="headerlink" title="2PC基本算法"></a>2PC基本算法</h5><ul>
+<li><p><strong>阶段一：提交事务询问请求（或投票）阶段</strong></p>
+<ol>
+<li>事务协调者（TM）向所有参与该事务的进程发送事务内容，询问是否可以执行该事务的提交，并等待所有AP的响应</li>
+<li>每个AP节点执行事务操作，将undo和redo信息记录到事务日志中，尽量把提交过程中所消耗时间的操作和准备都提前完成后确保后续事务提交的成功率（undo log-回滚日志，redo log-重做日志）</li>
+<li>每个AP向TM回复协议消息（投票），如果AP执行成功则投票赞成，如果AP回复协议消息失败或者出现无法预知的错误则投票不赞成</p>
+            <p class="article-more-link">
+                <a href="/2019/03/23/2pc-3pc/#more">查看更多</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+</div>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-dtp" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1135,109 +1241,6 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
 
 
-    <article id="post-Java-nio" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/05/30/Java-nio/">Java Nio中的缓冲区与通道</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/05/30/Java-nio/">
-            <time datetime="2018-05-30T12:46:25.000Z" itemprop="datePublished">2018-05-30</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/编程语言/">编程语言</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/编程语言/java/">java</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/nio/">nio</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p><strong>Java NIO简介</strong></p>
-<blockquote>
-<p>Java NIO（New IO）是用于Java（来自Java 1.4）的替代IO API，意味着替代标准 Java IO和Java Networking API，Java NIO提供了与原来IO API不同的工作方式，但是作用和目的是一样的。<br>NIO支持面向缓冲区的，基于通道的IO操作，NIO将以更加高效的方式进行文件的读写操作。</p>
-</blockquote></p>
-            <p class="article-more-link">
-                <a href="/2018/05/30/Java-nio/#more">查看更多</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
-    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
-    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
-    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
-</div>
-<script>
-window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-<style>
-    .bdshare_popup_box {
-        border-radius: 4px;
-        border: #e1e1e1 solid 1px;
-    }
-    .bdshare-button-style0-16 a,
-    .bdshare-button-style0-16 .bds_more {
-        padding-left: 20px;
-        margin: 6px 10px 6px 0;
-    }
-    .bdshare_dialog_list a,
-    .bdshare_popup_list a,
-    .bdshare_popup_bottom a {
-        font-family: 'Microsoft Yahei';
-    }
-    .bdshare_popup_top {
-        display: none;
-    }
-    .bdshare_popup_bottom {
-        height: auto;
-        padding: 5px;
-    }
-</style>
-
-
-</div>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
     </nav>
@@ -1250,7 +1253,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PostgreSQL/">PostgreSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/microservice/">microservice</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/microservice/springcloud/">springcloud</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/microservice/分布式事务/">分布式事务</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nosql/">nosql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">4</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PostgreSQL/">PostgreSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/microservice/">microservice</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/microservice/springcloud/">springcloud</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/microservice/分布式事务/">分布式事务</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/nosql/">nosql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/java/">java</a><span class="category-list-count">4</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -1259,7 +1262,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1268,7 +1271,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nacos/">nacos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nio/">nio</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/">springboot</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springcloud/">springcloud</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springcloud-alibaba/">springcloud-alibaba</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webflux/">webflux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zipkin/">zipkin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zuul/">zuul</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/事务/">事务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nacos/">nacos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nio/">nio</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/">springboot</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springcloud/">springcloud</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springcloud-alibaba/">springcloud-alibaba</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webflux/">webflux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zipkin/">zipkin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zuul/">zuul</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/事务/">事务</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1277,7 +1280,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/nacos/" style="font-size: 10px;">nacos</a> <a href="/tags/nio/" style="font-size: 13.33px;">nio</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/springboot/" style="font-size: 16.67px;">springboot</a> <a href="/tags/springcloud/" style="font-size: 16.67px;">springcloud</a> <a href="/tags/springcloud-alibaba/" style="font-size: 10px;">springcloud-alibaba</a> <a href="/tags/webflux/" style="font-size: 10px;">webflux</a> <a href="/tags/zipkin/" style="font-size: 10px;">zipkin</a> <a href="/tags/zuul/" style="font-size: 10px;">zuul</a> <a href="/tags/事务/" style="font-size: 10px;">事务</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+            <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/nacos/" style="font-size: 10px;">nacos</a> <a href="/tags/nio/" style="font-size: 12.5px;">nio</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/springboot/" style="font-size: 15px;">springboot</a> <a href="/tags/springcloud/" style="font-size: 17.5px;">springcloud</a> <a href="/tags/springcloud-alibaba/" style="font-size: 10px;">springcloud-alibaba</a> <a href="/tags/webflux/" style="font-size: 10px;">webflux</a> <a href="/tags/zipkin/" style="font-size: 10px;">zipkin</a> <a href="/tags/zuul/" style="font-size: 10px;">zuul</a> <a href="/tags/事务/" style="font-size: 12.5px;">事务</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
         </div>
     </div>
 

@@ -3,15 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档 | 晓阳</title>
+    <title>分布式事务 2PC-3PC协议 | 晓阳</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="晓阳">
-<meta property="og:url" content="http://wxiaoyang.top/archives/index.html">
+    <meta name="description" content="两阶段提交协议-2PC两阶段提交协议(2PC)：是一种原子承诺协议，一种分布式算法，它协调参与分布式事务的所有应用（进程）是否提交或终止（回滚）事务， 2PC基本算法 阶段一：提交事务询问请求（或投票）阶段  事务协调者（TM）向所有参与该事务的进程发送事务内容，询问是否可以执行该事务的提交，并等待所有AP的响应 每个AP节点执行事务操作，将undo和redo信息记录到事务日志中，尽量把提交过程中">
+<meta name="keywords" content="springcloud,事务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布式事务 2PC-3PC协议">
+<meta property="og:url" content="http://wxiaoyang.top/2019/03/23/2pc-3pc/index.html">
 <meta property="og:site_name" content="晓阳">
+<meta property="og:description" content="两阶段提交协议-2PC两阶段提交协议(2PC)：是一种原子承诺协议，一种分布式算法，它协调参与分布式事务的所有应用（进程）是否提交或终止（回滚）事务， 2PC基本算法 阶段一：提交事务询问请求（或投票）阶段  事务协调者（TM）向所有参与该事务的进程发送事务内容，询问是否可以执行该事务的提交，并等待所有AP的响应 每个AP节点执行事务操作，将undo和redo信息记录到事务日志中，尽量把提交过程中">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.niupic.com/images/2019/03/21/5SAL.png">
+<meta property="og:image" content="https://i.niupic.com/images/2019/03/21/5SBg.png">
+<meta property="og:image" content="https://i.niupic.com/images/2019/03/22/5SKX.png">
+<meta property="og:updated_time" content="2019-03-23T06:45:57.712Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="晓阳">
+<meta name="twitter:title" content="分布式事务 2PC-3PC协议">
+<meta name="twitter:description" content="两阶段提交协议-2PC两阶段提交协议(2PC)：是一种原子承诺协议，一种分布式算法，它协调参与分布式事务的所有应用（进程）是否提交或终止（回滚）事务， 2PC基本算法 阶段一：提交事务询问请求（或投票）阶段  事务协调者（TM）向所有参与该事务的进程发送事务内容，询问是否可以执行该事务的提交，并等待所有AP的响应 每个AP节点执行事务操作，将undo和redo信息记录到事务日志中，尽量把提交过程中">
+<meta name="twitter:image" content="https://i.niupic.com/images/2019/03/21/5SAL.png">
     
 
     
@@ -207,25 +216,21 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fas fa-calendar-alt"></i></span>
-                <h1 class="title">2019</h1>
-            </div>
+            <section id="main"><article id="post-2pc-3pc" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2019/03/23/2pc-3pc/">分布式事务 2PC-3PC协议</a>
+        <h1 class="article-title" itemprop="name">
+            分布式事务 2PC-3PC协议
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
         <a href="/2019/03/23/2pc-3pc/">
@@ -234,356 +239,162 @@
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fas fa-folder"></i>
         <a class="article-category-link" href="/categories/microservice/">microservice</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/microservice/分布式事务/">分布式事务</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fas fa-tag"></i>
         <a class="tag-link" href="/tags/springcloud/">springcloud</a>, <a class="tag-link" href="/tags/事务/">事务</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2019/03/17/dtp/">分布式事务与X/Open DTP模型</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2019/03/17/dtp/">
-            <time datetime="2019-03-17T07:32:25.000Z" itemprop="datePublished">2019-03-17</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/microservice/">microservice</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/microservice/分布式事务/">分布式事务</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/springcloud/">springcloud</a>, <a class="tag-link" href="/tags/事务/">事务</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2019/03/15/nacos/">Spring Cloud Alibab Nacos注册中心与配置中心</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2019/03/15/nacos/">
-            <time datetime="2019-03-15T03:46:25.000Z" itemprop="datePublished">2019-03-15</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/microservice/">microservice</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/microservice/springcloud/">springcloud</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/nacos/">nacos</a>, <a class="tag-link" href="/tags/springboot/">springboot</a>, <a class="tag-link" href="/tags/springcloud/">springcloud</a>, <a class="tag-link" href="/tags/springcloud-alibaba/">springcloud-alibaba</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fas fa-calendar-alt"></i></span>
-                <h1 class="title">2018</h1>
-            </div>
+            </header>
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/12/31/redis-data-type/">redis数据类型及常用命令</a>
-        </h1>
-    
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h4 id="两阶段提交协议-2PC"><a href="#两阶段提交协议-2PC" class="headerlink" title="两阶段提交协议-2PC"></a>两阶段提交协议-2PC</h4><p>两阶段提交协议(2PC)：是一种原子承诺协议，一种分布式算法，它协调参与分布式事务的所有应用（进程）是否提交或终止（回滚）事务，</p>
+<h5 id="2PC基本算法"><a href="#2PC基本算法" class="headerlink" title="2PC基本算法"></a>2PC基本算法</h5><ul>
+<li><p><strong>阶段一：提交事务询问请求（或投票）阶段</strong></p>
+<ol>
+<li>事务协调者（TM）向所有参与该事务的进程发送事务内容，询问是否可以执行该事务的提交，并等待所有AP的响应</li>
+<li>每个AP节点执行事务操作，将undo和redo信息记录到事务日志中，尽量把提交过程中所消耗时间的操作和准备都提前完成后确保后续事务提交的成功率（undo log-回滚日志，redo log-重做日志）</li>
+<li>每个AP向TM回复协议消息（投票），如果AP执行成功则投票赞成，如果AP回复协议消息失败或者出现无法预知的错误则投票不赞成<a id="more"></a>
+<img src="https://i.niupic.com/images/2019/03/21/5SAL.png" alt="2pc阶段一"></li>
+</ol>
+</li>
+<li><p><strong>阶段二：提交事务阶段</strong></p>
+<ul>
+<li><strong>阶段一成功执行事务</strong>：协调者（TM）在提交事务请求阶段收到来自所有AP的协议消息<ol>
+<li>TM向所有AP发送事务提交消息</li>
+<li>每个AP执行事务操作，并释放事务期间所有持有的锁和资源</li>
+<li>每个AP向TM发送事务确认的协议消息</li>
+<li>TM收到所有AP的确认消息完成本次事务</li>
+</ol>
+</li>
+<li><strong>阶段一失败中断事务</strong>：任何AP投票否或者TM超时<ol>
+<li>TM向所有AP发送事务回滚消息</li>
+<li>每个AP根据回滚日志（undo log）撤销事务，并释放事务期间所有持有的锁和资源</li>
+<li>每个AP向TM发送确认消息</li>
+<li>TM收到所有的确认消息后撤销该事务<br><img src="https://i.niupic.com/images/2019/03/21/5SBg.png" alt="2pc阶段二"></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="2PC的缺点"><a href="#2PC的缺点" class="headerlink" title="2PC的缺点"></a>2PC的缺点</h5><ol>
+<li><p>同步堵塞：两阶段提交协议最大的缺点就是它是一种堵塞协议，在事务询问阶段AP向TM发送协议消息后，AP将堵塞，直到AP收到TM提交或回滚事务</p>
+</li>
+<li><p>数据一致性：如果在执行阶段二时TM或者部分AP不可用，部分AP执行事务不成功，导致数据不一致</p>
+</li>
+</ol>
+<h4 id="三阶段提交协议-3PC"><a href="#三阶段提交协议-3PC" class="headerlink" title="三阶段提交协议-3PC"></a>三阶段提交协议-3PC</h4><p>3PC是2PC的升级版，与2PC最大的不同就是3PC它是非堵塞的，具体就是在事务提交或者中止之前增加了一种<strong>超时机制</strong>，当超过这个时间上限还未提交事务，就会把该事务绑定的资源释放掉</p>
+<p><strong>3PC算法</strong></p>
+<ul>
+<li><p>阶段一：canCommit（投票）</p>
+<ol>
+<li>TM接收到事务请求后，向所有事务参与者发送<code>canCommit</code>请求，等待参与者返回信息，如果TM在接收事务请求时出现故障或者不可用，TM将直接中止事务。</li>
+<li>事务参与者接收到一个来自TM的<code>canCommit</code>请求后，如果参与者都同意后会向TM回复<code>yes</code>消息并进入准备状态，如果参与者获取资源失败或者出现不可用会回复<code>no</code>中止事务。</li>
+</ol>
+</li>
+<li><p>阶段二：preCommit（预提交）</p>
+<ol>
+<li>TM在超时时间内收到<code>yes</code>消息后，会向所有的参与者发送<code>preCommit</code>消息，如果出现故障，超时或者TM收到<code>no</code>消息，TM将向所有参与者发送中止事务的消息。</li>
+<li>所有等待中的参与者如果收到<code>preCommit</code>消息会发挥<code>ACK</code>消息并等待最终提交或中止事务，如果搜道协调者中止消息，失败或者超时等待则会中止事务。</li>
+</ol>
+</li>
+<li><p>阶段三：doCommit（提交）</p>
+<ol>
+<li><p>如果协调者正常工作并收到了所有参与者的<code>ACK</code>消息，它会向所有的参与者发送<code>doCommit</code>消息，如果超时时间范围内未收到或者部分未收到等情况，协调者向所有的参与者发送中止事务消息。</p>
+</li>
+<li><p>如果参与者接收到<code>doCommit</code>消息，会正式提交事务，并释放整个事务期间占用的资源，然后向TM反馈<code>ACK</code>消息，如果收到来自TM的中止消息参与者会根据阶段一的undo log回滚事务，并释放所有的事务资源并向TM反馈<code>ACK</code>信息。完成事务。。</p>
+</li>
+</ol>
+</li>
+</ul>
+<p><img src="https://i.niupic.com/images/2019/03/22/5SKX.png" alt="3pc"></p>
+<h5 id="3PC的缺点"><a href="#3PC的缺点" class="headerlink" title="3PC的缺点"></a>3PC的缺点</h5><p>在阶段三如果协调者在超时范围内未提交<code>doCommit</code>消息或者中止消息，参与者在超时后会继续进行事务的提交，如果<code>doCommit</code>没问题但是如果是中止服务的话参与者还会自动提交事务这样可能导致本来的事务回滚变成了事务提交。</p>
+<p>参阅：<br><a href="https://en.wikipedia.org/wiki/Two-phase_commit_protocol" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Two-phase_commit_protocol</a><br><a href="https://en.wikipedia.org/wiki/Three-phase_commit_protocol" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Three-phase_commit_protocol</a></p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/12/31/redis-data-type/">
-            <time datetime="2018-12-31T10:54:25.000Z" itemprop="datePublished">2018-12-31</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/nosql/">nosql</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/redis/">redis</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/12/20/docker-arrange/">DOCKER编排SpringCloud微服务</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/12/20/docker-arrange/">
-            <time datetime="2018-12-20T12:38:25.000Z" itemprop="datePublished">2018-12-20</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/microservice/">microservice</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/microservice/springcloud/">springcloud</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/docker/">docker</a>, <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/springboot/">springboot</a>, <a class="tag-link" href="/tags/springcloud/">springcloud</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/11/26/pgsql-data-type/">PostgreSQL数据类型概述</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/11/26/pgsql-data-type/">
-            <time datetime="2018-11-26T12:20:25.000Z" itemprop="datePublished">2018-11-26</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/PostgreSQL/">PostgreSQL</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/09/26/zk-install/">zookeeper集群安装</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/09/26/zk-install/">
-            <time datetime="2018-09-25T16:00:00.000Z" itemprop="datePublished">2018-09-26</time>
-        </a>
-    </div>
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
 
 
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/microservice/">microservice</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/linux/">linux</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/07/18/proxy/">Java 代理模式</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/07/18/proxy/">
-            <time datetime="2018-07-18T08:46:25.000Z" itemprop="datePublished">2018-07-18</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/编程语言/">编程语言</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/编程语言/java/">java</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/设计模式/">设计模式</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/07/04/selector/">Java Nio选择器Selector</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/07/04/selector/">
-            <time datetime="2018-07-04T08:46:25.000Z" itemprop="datePublished">2018-07-04</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/编程语言/">编程语言</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/编程语言/java/">java</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/nio/">nio</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/06/16/webflux/">spring-webflux简介与示例</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/16/webflux/">
-            <time datetime="2018-06-16T03:28:25.000Z" itemprop="datePublished">2018-06-16</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/编程语言/">编程语言</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/编程语言/java/">java</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/springboot/">springboot</a>, <a class="tag-link" href="/tags/webflux/">webflux</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
 
-    <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">下一页 &raquo;</a>
-    </nav>
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/03/17/dtp/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">分布式事务与X/Open DTP模型</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+	<div id="commentContainer"></div>
+</section>
+    
+
 </section>
             
                 

@@ -4,6 +4,31 @@
 
     
   <url>
+    <loc>http://wxiaoyang.top/2019/03/23/2pc-3pc/</loc>
+    <lastmod>2019-03-23T06:45:57.712Z</lastmod>
+    <data>
+        <display>
+        <title>分布式事务 2PC-3PC协议</title>
+        <pubTime>2019-03-23T06:42:25.000Z</pubTime>
+        
+        <tag>springcloud</tag>
+         
+        <tag>事务</tag>
+         
+         
+           
+             
+              <breadCrumb title="microservice" url="http://wxiaoyang.top/categories/microservice/"/>
+          
+             
+              <breadCrumb title="分布式事务" url="http://wxiaoyang.top/categories/microservice/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wxiaoyang.top/2019/03/17/dtp/</loc>
     <lastmod>2019-03-18T13:11:32.796Z</lastmod>
     <data>
@@ -38,9 +63,9 @@
         
         <tag>java</tag>
          
-        <tag>springcloud</tag>
-         
         <tag>springboot</tag>
+         
+        <tag>springcloud</tag>
          
         <tag>nacos</tag>
          
@@ -89,11 +114,11 @@
         
         <tag>java</tag>
          
-        <tag>springcloud</tag>
-         
         <tag>docker</tag>
          
         <tag>springboot</tag>
+         
+        <tag>springcloud</tag>
          
          
            
@@ -158,9 +183,9 @@
         
         <tag>java</tag>
          
-        <tag>springcloud</tag>
-         
         <tag>springboot</tag>
+         
+        <tag>springcloud</tag>
          
         <tag>zipkin</tag>
          
@@ -187,9 +212,9 @@
         
         <tag>java</tag>
          
-        <tag>springcloud</tag>
-         
         <tag>springboot</tag>
+         
+        <tag>springcloud</tag>
          
         <tag>zuul</tag>
          
