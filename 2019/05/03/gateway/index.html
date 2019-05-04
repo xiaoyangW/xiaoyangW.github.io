@@ -3,16 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>About | 晓阳</title>
+    <title>Spring-Cloud-Gateway简介与使用 | 晓阳</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="About">
-<meta property="og:url" content="http://wxiaoyang.top/about/index.html">
+    <meta name="description" content="官方简介该项目提供了一个建立在Spring Ecosystem之上的API网关，包括：Spring 5，Spring Boot 2和Project Reactor。Spring Cloud Gateway旨在提供一种简单而有效的方式来对API进行路由，并为他们提供切面，例如：安全性，监控/指标 和弹性等。">
+<meta name="keywords" content="java,springboot,springcloud,gateway">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring-Cloud-Gateway简介与使用">
+<meta property="og:url" content="http://wxiaoyang.top/2019/05/03/gateway/index.html">
 <meta property="og:site_name" content="晓阳">
+<meta property="og:description" content="官方简介该项目提供了一个建立在Spring Ecosystem之上的API网关，包括：Spring 5，Spring Boot 2和Project Reactor。Spring Cloud Gateway旨在提供一种简单而有效的方式来对API进行路由，并为他们提供切面，例如：安全性，监控/指标 和弹性等。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-03T11:01:03.313Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/spring-cloud/spring-cloud-gateway/master/docs/src/main/asciidoc/images/spring_cloud_gateway_diagram.png">
+<meta property="og:updated_time" content="2019-05-04T12:59:02.597Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About">
+<meta name="twitter:title" content="Spring-Cloud-Gateway简介与使用">
+<meta name="twitter:description" content="官方简介该项目提供了一个建立在Spring Ecosystem之上的API网关，包括：Spring 5，Spring Boot 2和Project Reactor。Spring Cloud Gateway旨在提供一种简单而有效的方式来对API进行路由，并为他们提供切面，例如：安全性，监控/指标 和弹性等。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/spring-cloud/spring-cloud-gateway/master/docs/src/main/asciidoc/images/spring_cloud_gateway_diagram.png">
     
 
     
@@ -208,7 +214,7 @@
 </aside>
 
             
-            <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-gateway" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -216,10 +222,34 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            About
+            Spring-Cloud-Gateway简介与使用
         </h1>
     
 
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2019/05/03/gateway/">
+            <time datetime="2019-05-03T12:46:25.000Z" itemprop="datePublished">2019-05-03</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/microservice/">microservice</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/microservice/springcloud/">springcloud</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/gateway/">gateway</a>, <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/springboot/">springboot</a>, <a class="tag-link" href="/tags/springcloud/">springcloud</a>
+    </div>
+
+                    </div>
                 
             </header>
         
@@ -227,7 +257,22 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            
+            <h4 id="官方简介"><a href="#官方简介" class="headerlink" title="官方简介"></a>官方简介</h4><p>该项目提供了一个建立在Spring Ecosystem之上的API网关，包括：Spring 5，Spring Boot 2和Project Reactor。Spring Cloud Gateway旨在提供一种简单而有效的方式来对API进行路由，并为他们提供切面，例如：安全性，监控/指标 和弹性等。<br><a id="more"></a></p>
+<h4 id="官方工作原理介绍"><a href="#官方工作原理介绍" class="headerlink" title="官方工作原理介绍"></a>官方工作原理介绍</h4><p><img src="https://raw.githubusercontent.com/spring-cloud/spring-cloud-gateway/master/docs/src/main/asciidoc/images/spring_cloud_gateway_diagram.png" alt="Spring Cloud Gateway Diagram"></p>
+<p>客户端向<code>spring-cloud-gateway</code>请求<code>网关映射处理程序</code>(gateway handler mapping)，如果确认请求与路由匹配，则将请求发送到<code>web处理程序</code>(gateway web handler)，<code>web处理程序</code>通过特定于该请求的过滤器链处理请求，图中<code>filters</code>被虚线划分的原因是filters可以在发送代理请求之前(<code>pre filter</code>)或之后执行逻辑(<code>post filter</code>)。先执行所有<code>pre filter</code>逻辑，然后进行请求代理。在请求代理执行完后，执行<code>post filter</code>逻辑。</p>
+<h4 id="开始使用Spring-Cloud-Gateway"><a href="#开始使用Spring-Cloud-Gateway" class="headerlink" title="开始使用Spring-Cloud-Gateway"></a>开始使用Spring-Cloud-Gateway</h4><p> Spring Cloud Gateway依赖Spring Boot和Spring Webflux提供的Netty runtime，所以springboot必须在<code>2.0或者以上</code>，springcloud在<code>Finchley</code>以上，基本springcloud环境确认后，然后引入：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-gateway<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>再将服务作为Eureka客户端注册至Eureka注册中心，这里省略，可以在GitHub代码中<a href="https://github.com/xiaoyangW/spingcloud-infrastructure" target="_blank" rel="noopener">查看</a></p>
+<h4 id="路由配置"><a href="#路由配置" class="headerlink" title="路由配置"></a>路由配置</h4><p>官网都是用的<code>yml</code>配置文件配置，与<code>properties</code>配置文件配置稍有不同，我这里全部使用<code>properties</code>配置文件配置。</p>
+<h5 id="直接使用注册中心路由配置"><a href="#直接使用注册中心路由配置" class="headerlink" title="直接使用注册中心路由配置"></a>直接使用注册中心路由配置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#使用服务发现路由</span><br><span class="line">spring.cloud.gateway.discovery.locator.enabled=true</span><br><span class="line">#服务路由名小写</span><br><span class="line">spring.cloud.gateway.discovery.locator.lower-case-service-id=true</span><br></pre></td></tr></table></figure>
+<h5 id="指定服务配置"><a href="#指定服务配置" class="headerlink" title="指定服务配置"></a>指定服务配置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#设置路由id</span><br><span class="line">spring.cloud.gateway.routes[0].id=auth-service</span><br><span class="line">#设置路由的uri</span><br><span class="line">spring.cloud.gateway.routes[0].uri=lb://auth-service</span><br><span class="line">#设置路由断言,代理servicerId为auth-service的/auth/路径</span><br><span class="line">spring.cloud.gateway.routes[0].predicates[0]= Path=/auth/**</span><br></pre></td></tr></table></figure>
+<p><code>spring.cloud.gateway.routes.predicates</code>：路由断言，配置时必须得有一项，不一定是<code>Path</code>；</p>
+<p><code>spring.cloud.gateway.routes.uri</code>：配置路由uri，”lb:’serviceId’”前代表路由的服务，同时也可以是一个url</p>
+<h5 id="编码服务配置"><a href="#编码服务配置" class="headerlink" title="编码服务配置"></a>编码服务配置</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RoutesConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> RouteLocator <span class="title">customRouteLocator</span><span class="params">(RouteLocatorBuilder builder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> builder.routes().route(predicateSpec -&gt;</span><br><span class="line">                predicateSpec.path(<span class="string">"/auth/**"</span>).uri(<span class="string">"lb://auth-service"</span>).id(<span class="string">"auth-service"</span>)</span><br><span class="line">        ).build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>Spring-Cloud-Gateway与Zuul 1.0相比，前者基于WebFlux与Reactive线程模型的异步非阻塞框架，服务通过底层的Netty来进行发布及运行，异步非阻塞可以有效降低系统的线程数量，只需要很少的线程就可以完成较高的并发支持，而Zuul1.0是基于servlet性能上的差距可想而知，同时Spring-Cloud-Gateway还内置了许多的<code>路由断言(Factories)</code>与<code>过滤器(Filter)</code>可以减少开发人员的编码，和更好的功能支持和扩展。</p>
+<p><a href="https://github.com/xiaoyangW/spingcloud-infrastructure" target="_blank" rel="noopener">示例代码</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1403887" target="_blank" rel="noopener">spring-cloud-gateway中文文档</a></p>
+
         
         </div>
         <footer class="article-footer">
@@ -279,6 +324,16 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     </div>
     
         
+<nav id="article-nav">
+    
+    
+        <a href="/2019/03/23/2pc-3pc/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">分布式事务 2PC-3PC协议</div>
+        </a>
+    
+</nav>
+
 
     
 </article>

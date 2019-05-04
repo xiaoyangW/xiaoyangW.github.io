@@ -4,6 +4,35 @@
 
     
   <url>
+    <loc>http://wxiaoyang.top/2019/05/03/gateway/</loc>
+    <lastmod>2019-05-04T12:59:02.597Z</lastmod>
+    <data>
+        <display>
+        <title>Spring-Cloud-Gateway简介与使用</title>
+        <pubTime>2019-05-03T12:46:25.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>springboot</tag>
+         
+        <tag>springcloud</tag>
+         
+        <tag>gateway</tag>
+         
+         
+           
+             
+              <breadCrumb title="microservice" url="http://wxiaoyang.top/categories/microservice/"/>
+          
+             
+              <breadCrumb title="springcloud" url="http://wxiaoyang.top/categories/microservice/springcloud/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wxiaoyang.top/2019/03/23/2pc-3pc/</loc>
     <lastmod>2019-03-23T06:45:57.712Z</lastmod>
     <data>
