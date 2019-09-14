@@ -4,16 +4,45 @@
 
     
   <url>
+    <loc>http://wxiaoyang.top/2019/09/13/gatway-factories/</loc>
+    <lastmod>2019-09-14T08:00:30.934Z</lastmod>
+    <data>
+        <display>
+        <title>Spring-Cloud-Gateway Predicate断言使用与自定义</title>
+        <pubTime>2019-09-13T07:46:25.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>springcloud</tag>
+         
+        <tag>springboot</tag>
+         
+        <tag>gateway</tag>
+         
+         
+           
+             
+              <breadCrumb title="microservice" url="http://wxiaoyang.top/categories/microservice/"/>
+          
+             
+              <breadCrumb title="springcloud" url="http://wxiaoyang.top/categories/microservice/springcloud/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wxiaoyang.top/2019/05/03/gateway/</loc>
-    <lastmod>2019-05-04T12:59:02.597Z</lastmod>
+    <lastmod>2019-09-14T07:56:25.662Z</lastmod>
     <data>
         <display>
         <title>Spring-Cloud-Gateway简介与使用</title>
         <pubTime>2019-05-03T12:46:25.000Z</pubTime>
         
-        <tag>springcloud</tag>
-         
         <tag>java</tag>
+         
+        <tag>springcloud</tag>
          
         <tag>springboot</tag>
          
@@ -90,9 +119,9 @@
         <title>Spring Cloud Alibab Nacos注册中心与配置中心</title>
         <pubTime>2019-03-15T03:46:25.000Z</pubTime>
         
-        <tag>springcloud</tag>
-         
         <tag>java</tag>
+         
+        <tag>springcloud</tag>
          
         <tag>springboot</tag>
          
@@ -141,13 +170,13 @@
         <title>DOCKER编排SpringCloud微服务</title>
         <pubTime>2018-12-20T12:38:25.000Z</pubTime>
         
-        <tag>springcloud</tag>
-         
         <tag>java</tag>
          
-        <tag>docker</tag>
+        <tag>springcloud</tag>
          
         <tag>springboot</tag>
+         
+        <tag>docker</tag>
          
          
            
@@ -210,9 +239,9 @@
         <title>Spring Cloud Sleuth和zipkin微服务跟踪</title>
         <pubTime>2018-04-22T08:08:25.000Z</pubTime>
         
-        <tag>springcloud</tag>
-         
         <tag>java</tag>
+         
+        <tag>springcloud</tag>
          
         <tag>springboot</tag>
          
@@ -239,9 +268,9 @@
         <title>Spring Cloud网关zuul</title>
         <pubTime>2018-01-11T07:32:25.000Z</pubTime>
         
-        <tag>springcloud</tag>
-         
         <tag>java</tag>
+         
+        <tag>springcloud</tag>
          
         <tag>springboot</tag>
          

@@ -3,20 +3,15 @@
 <head>
     <meta charset="utf-8">
     
-    <title>PostgreSQL数据类型概述 | 晓阳</title>
+    <title>归档: 2019/9 | 晓阳</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="PostgreSQL支持以下数据类型：  布尔类型（boolean） 字符类型，如char，varchar和text。 数字类型，例如整数和浮点数。 时间类型，如date,time,timestamp 用于存储通用唯一标识符的[UUID] array(数组)，用于存储数组字符串，数字等">
-<meta name="keywords" content="PostgreSQL">
-<meta property="og:type" content="article">
-<meta property="og:title" content="PostgreSQL数据类型概述">
-<meta property="og:url" content="http://wxiaoyang.top/2018/11/26/pgsql-data-type/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="晓阳">
+<meta property="og:url" content="http://wxiaoyang.top/archives/2019/09/index.html">
 <meta property="og:site_name" content="晓阳">
-<meta property="og:description" content="PostgreSQL支持以下数据类型：  布尔类型（boolean） 字符类型，如char，varchar和text。 数字类型，例如整数和浮点数。 时间类型，如date,time,timestamp 用于存储通用唯一标识符的[UUID] array(数组)，用于存储数组字符串，数字等">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:36:28.850Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PostgreSQL数据类型概述">
-<meta name="twitter:description" content="PostgreSQL支持以下数据类型：  布尔类型（boolean） 字符类型，如char，varchar和text。 数字类型，例如整数和浮点数。 时间类型，如date,time,timestamp 用于存储通用唯一标识符的[UUID] array(数组)，用于存储数组字符串，数字等">
+<meta name="twitter:title" content="晓阳">
     
 
     
@@ -212,195 +207,50 @@
 </aside>
 
             
-            <section id="main"><article id="post-pgsql-data-type" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+            <section id="main"><div class="timeline timeline-wrap">
+    
+            <div class="timeline-row timeline-row-major">
+                <span class="node"><i class="fas fa-calendar-alt"></i></span>
+                <h1 class="title">2019</h1>
+            </div>
         
-        
-            <header class="article-header">
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
                 
     
-        <h1 class="article-title" itemprop="name">
-            PostgreSQL数据类型概述
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/2019/09/13/gatway-factories/">Spring-Cloud-Gateway Predicate断言使用与自定义</a>
         </h1>
     
 
-                
-                    <div class="article-meta">
-                        
+                <div class="article-meta">
+                    
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/11/26/pgsql-data-type/">
-            <time datetime="2018-11-26T12:20:25.000Z" itemprop="datePublished">2018-11-26</time>
+        <a href="/2019/09/13/gatway-factories/">
+            <time datetime="2019-09-13T07:46:25.000Z" itemprop="datePublished">2019-09-13</time>
         </a>
     </div>
 
 
-                        
+                    
     <div class="article-category">
     	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
+        <a class="article-category-link" href="/categories/microservice/">microservice</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/microservice/springcloud/">springcloud</a>
     </div>
 
-                        
+                    
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/PostgreSQL/">PostgreSQL</a>
+        <a class="tag-link" href="/tags/gateway/">gateway</a>, <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/springboot/">springboot</a>, <a class="tag-link" href="/tags/springcloud/">springcloud</a>
     </div>
 
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>  PostgreSQL支持以下数据类型：</p>
-<ul>
-<li>布尔类型（boolean）</li>
-<li>字符类型，如<code>char</code>，<code>varchar</code>和<code>text</code>。</li>
-<li>数字类型，例如整数和浮点数。</li>
-<li>时间类型，如<code>date</code>,<code>time</code>,<code>timestamp</code></li>
-<li>用于存储通用唯一标识符的[UUID]</li>
-<li>array(数组)，用于存储数组字符串，数字等 <a id="more"></a></li>
-<li>json  存储json数据</li>
-<li>hstore存储键值对</li>
-<li><p>特殊类型，如网络地址、几何数据、货币数据等。</p>
-<h3 id="布尔"><a href="#布尔" class="headerlink" title="布尔"></a>布尔</h3><p>一个[布尔]数据类型可以容纳三个可能的值之一：true，false或null。您使用<code>boolean</code>或者 <code>bool</code>来声明具有布尔数据类型的列。</p>
-<p>当将数据插入布尔列时，PostgreSQL将其转换为布尔值，例如 <code>1</code>，<code>yes</code>，<code>y</code>，<code>t</code>，<code>true</code>会转换为true；<code>0</code>，<code>no</code>，<code>n</code>, <code>false</code>，<code>f</code>会转换为false。</p>
-<p>当您从布尔列中查询数据时候，PostgreSQL会将<code>t</code>值转换为true，将<code>f</code>空格转换为false。</p>
-<h3 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h3><p>PostgreSQL的提供了三种[字符数据类型]：<code>char(n)</code>，<code>varchar(n)</code>，和<code>text</code></p>
-</li>
-<li><p><code>char(n)</code>是带有空格填充的固定长度字符。如果插入的字符串短于列的长度，PostgreSQL会填充空格。如果插入的字符串长度超过列的长度，PostgreSQL将发出错误。</p>
-</li>
-<li><code>varchar(n)</code>是可变长度的字符串。有了<code>varchar(N)</code>，您可以存储最多<code>n</code>字符。当存储的字符串短于列的长度时，PostgreSQL不会填充空格。</li>
-<li><p><code>text</code> 是可变长度的字符串。从理论上讲，文本数据是一个长度不限的字符串。</p>
-<h3 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h3><p>PostgreSQL提供两种不同类型的数字：</p>
-</li>
-<li><p>整数</p>
-</li>
-<li><p>浮点数</p>
-<h4 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h4><p>PostgreSQL中有三种整数：</p>
-</li>
-<li><p>smallint（<code>小整数</code>别名<code>int2</code>）是2字节有符号整数，范围从-32,768到32,767。</p>
-</li>
-<li>integer（别名：<code>int</code>、<code>int4</code>）是一个4字节的整数，范围从-2,147,483,648到-2,147,483,647。</li>
-<li>bigint（别名：<code>int8</code>）是一个八字节的整数，范围从-9223372036854775808 到9223372036854775807</li>
-<li><p>serial（别名：<code>serial2</code>、<code>serial4</code>、<code>serial8</code>）最大值与整数相同，只是PostgreSQL会自动生成值并将值填充到<code>serial</code>列中。这类似于MySQL中的<code>AUTO_INCREMENT</code></p>
-<h4 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h4><p>有三种主要类型的浮点数：</p>
-</li>
-<li><p><code>float(n)</code>  是一个浮点数，其精度至少为n，最多为8个字节。</p>
-</li>
-<li><code>real</code>或者<code>float8</code>是双精度（8字节）浮点数。</li>
-<li><p><code>numeric</code>或者<code>numeric(p,s)</code> 是带小数点后带有s数的p位数的实数。这<code>numeric(p,s)</code>是确切的数字。</p>
-<h3 id="时间数据类型"><a href="#时间数据类型" class="headerlink" title="时间数据类型"></a>时间数据类型</h3><p>时态数据类型允许您存储日期和/或时间数据。PostgreSQL有五种主要的时态数据类型：</p>
-</li>
-<li><p><code>date</code>仅存储日期值。</p>
-</li>
-<li><code>time</code>存储时间值。</li>
-<li><code>timestamp</code>存储日期和时间值。</li>
-<li><code>timestampz</code>是一种时区感知时间戳数据类型。它是带时区的[时间戳]的缩写。</li>
-<li><p><code>interval</code>存储一段时间，时间间隔。</p>
-<p>这<code>timestampz</code>是PostgreSQL对SQL标准的时间数据类型的扩展。</p>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>在PostgreSQL中有存储字符串，整数等类型的数组。该数组在某些情况下会派上用场，例如，存储一周中的几天，一年中的几个月。</p>
-<h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><p>PostgreSQL提供2种JSON的数据类型：<code>json</code>和<code>jsonb</code>用于存储json数据。</p>
-<p>在<code>json</code>需要为每个处理重新分析数据类型存储json数据，而<code>jsonb</code>在二进制格式这是更快处理，但速度慢于插入数据类型存储json数据。另外，<code>jsonb</code>支持索引，这可能是一个优势。</p>
-<h3 id="UUID"><a href="#UUID" class="headerlink" title="UUID"></a>UUID</h3><p>该<code>UUID</code>数据类型允许您存储通用唯一标识符被定义  。这些<code>UUID</code>值保证了更好的唯一性，<code>serial</code>并且可以用于隐藏公开的敏感数据，例如<code>id</code>中的值。</p>
-<h3 id="特殊数据类型"><a href="#特殊数据类型" class="headerlink" title="特殊数据类型"></a>特殊数据类型</h3><p>除原始数据类型外，PostgreSQL还提供了几种与几何和网络相关的特殊数据类型。</p>
-</li>
-<li><p><code>box</code>- 一个矩形框。</p>
-</li>
-<li><code>line</code>- 一组积分。</li>
-<li><code>point</code>- 一对几何数字。</li>
-<li><code>lseg</code>- 线段。</li>
-<li><code>polygon</code>- 封闭的几何形状。</li>
-<li><code>inet</code>- IP4地址。</li>
-<li><code>macaddr</code>- 一个  <code>MAC</code>地址。</li>
-<li><code>money</code>-货币金额</li>
-</ul>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
-    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
-    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
-    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
-</div>
-<script>
-window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-<style>
-    .bdshare_popup_box {
-        border-radius: 4px;
-        border: #e1e1e1 solid 1px;
-    }
-    .bdshare-button-style0-16 a,
-    .bdshare-button-style0-16 .bds_more {
-        padding-left: 20px;
-        margin: 6px 10px 6px 0;
-    }
-    .bdshare_dialog_list a,
-    .bdshare_popup_list a,
-    .bdshare_popup_bottom a {
-        font-family: 'Microsoft Yahei';
-    }
-    .bdshare_popup_top {
-        display: none;
-    }
-    .bdshare_popup_bottom {
-        height: auto;
-        padding: 5px;
-    }
-</style>
-
-
-</div>
-
-            
-    
-
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2018/12/20/docker-arrange/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    DOCKER编排SpringCloud微服务
-                
+                </div>
             </div>
-        </a>
+        </div>
     
-    
-        <a href="/2018/09/26/zk-install/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">zookeeper集群安装</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-
-    
-    
-        <section id="comments">
-	<div id="commentContainer"></div>
-</section>
-    
-
+</div>
 </section>
             
                 
